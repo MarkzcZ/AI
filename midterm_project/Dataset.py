@@ -12,7 +12,7 @@ class MyDataSet(Dataset):
 
     def __getitem__(self, idx):
         # 将数据转换成二维Tensor，并且选择asv的某一列进行提取
-        x1_tensor = torch.Tensor((self.data['radius_mean']/200).to_list()).reshape(-1, 1)
+        x1_tensor = torch.Tensor((self.data['area_mean']/50).to_list()).reshape(-1, 1)
         
         list1 = []
         for x in self.data['diagnosis']:
@@ -32,6 +32,6 @@ class MyDataSet(Dataset):
 
 if __name__ == '__main__':
     myTrainData = MyDataSet("origin_breast_cancer_data.csv")
-    x1, y1 = myTrainData.__getitem__(0)
+    x1, y1 = myTrainData.__getitem__(19)
     print(x1)
     print(y1)
