@@ -12,7 +12,7 @@ class MyDataSet(Dataset):
 
     def __getitem__(self, idx):
         # 将数据转换成二维Tensor，并且选择asv的某一列进行提取
-        x1_tensor = torch.Tensor((self.data['area_mean']/50).to_list()).reshape(-1, 1)
+        x1_tensor = torch.Tensor((self.data['symmetry_mean']).to_list()).reshape(-1, 1)
         
         list1 = []
         for x in self.data['diagnosis']:
